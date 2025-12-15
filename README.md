@@ -1,6 +1,6 @@
 # Astral
 
-O InterviewBot IA é uma plataforma web gamificada desenvolvida para ajudar candidatos da área de tecnologia a treinarem para entrevistas de emprego, sejam elas técnicas ou comportamentais.
+O Astral é uma plataforma web gamificada desenvolvida para ajudar candidatos da área de tecnologia a treinarem para entrevistas de emprego, sejam elas técnicas ou comportamentais.
 
 # Funcionalidades
 - 🤖 Chatbot IA: Integração com Botpress para simulação de conversas com recrutadores.
