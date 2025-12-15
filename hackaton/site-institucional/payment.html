@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Assinatura | Entrevistas Tech com IA</title>
+
+    <link rel="stylesheet" href="payment.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="checkout-container">
+
+    <div class="checkout-box">
+        <h1>Finalize sua Assinatura</h1>
+        <p class="sub">
+            Garanta acesso ao chatbot de IA para treinar entrevistas tech
+            e evoluir sua comunicação profissional.
+        </p>
+
+        <!-- PLANO SELECIONADO -->
+        <div class="plan-selected">
+            <h3>Plano Selecionado</h3>
+            <p id="plan-name">Carregando...</p>
+            <span id="plan-price"></span>
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <form class="payment-form">
+            <h3>Dados de Pagamento</h3>
+
+            <input type="text" placeholder="Nome completo" required>
+            <input type="email" placeholder="E-mail" required>
+            <input type="text" placeholder="Número do cartão" maxlength="19" required>
+            <input type="text" placeholder="Validade (MM/AA)" maxlength="5" required>
+            <input type="text" placeholder="CVV" maxlength="3" required>
+
+            <button class="btn-pay" type="submit">
+                Confirmar Assinatura
+            </button>
+        </form>
+
+        <p class="safe">
+            🔒 Pagamento 100% seguro • Seus dados são protegidos
+        </p>
+    </div>
+
+</div>
+
+<script>
+    // Captura o plano pela URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const plan = urlParams.get("plan");
+
+    const nameEl = document.getElementById("plan-name");
+    const priceEl = document.getElementById("plan-price");
+
+    if (plan === "free") {
+        nameEl.innerText = "Plano Gratuito – Entrevistas com IA";
+        priceEl.innerText = "R$ 0";
+    } 
+    else if (plan === "mensal") {
+        nameEl.innerText = "Plano Mensal – Treino Ilimitado";
+        priceEl.innerText = "R$ 29/mês";
+    } 
+    else if (plan === "anual") {
+        nameEl.innerText = "Plano Anual – Acesso Completo";
+        priceEl.innerText = "R$ 249/ano";
+    } 
+    else {
+        nameEl.innerText = "Nenhum plano selecionado";
+        priceEl.innerText = "";
+    }
+</script>
+
+<script src="payment.js"></script>
+</body>
+</html>

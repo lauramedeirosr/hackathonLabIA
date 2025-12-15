@@ -1,0 +1,190 @@
+body {
+    background: linear-gradient(135deg,
+    #2d0255 0%,
+        rgba(0,123,255,1) 50%, 
+        rgba(0,200,83,1) 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.checkout-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.checkout-box {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    padding: 16px 14px;    /* REDUZIU O ESPAÇAMENTO INTERNO */
+    width: 360px;          /* DIMINUIU A LARGURA */
+    color: white;
+    text-align: center;
+    border: 3px solid rgba(255,255,255,0.45);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.22);
+    margin-top: 30px;
+}
+
+
+.checkout-box h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.sub {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+.plan-selected {
+    background: rgba(255,255,255,0.2);
+    padding: 15px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.25);
+    color: white;
+    font-size: 1rem;
+}
+
+.payment-form input::placeholder {
+    color: rgba(255,255,255,0.85);
+}
+
+.btn-pay {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(90deg, var(--laranja), var(--azul));
+    border-radius: 12px;
+    border: 4px solid rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-pay:hover {
+    transform: translateY(-3px) scale(1.03);
+    filter: brightness(1.1);
+}
+
+.safe {
+    opacity: 0.8;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVIDADE — MOBILE / TABLET
+============================================ */
+@media (max-width: 900px) {
+    .checkout-box {
+        width: 80%;
+        padding: 35px;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 20px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .checkout-box {
+        width: 100%;
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+
+    .checkout-box h1 {
+        font-size: 1.8rem;
+    }
+
+    .sub {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .payment-form input {
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    .btn-pay {
+        padding: 16px;
+        font-size: 1.15rem;
+    }
+
+    .plan-selected {
+        padding: 12px;
+    }
+
+    /* QR Code responsivo */
+    #qrcode {
+        width: 180px !important;
+    }
+
+    #copia_cola {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .checkout-box {
+        padding: 25px 18px;
+    }
+
+    .checkout-box h1 {
+        font-size: 1.6rem;
+    }
+
+    .btn-pay {
+        font-size: 1.05rem;
+        padding: 14px;
+    }
+
+    .payment-form input {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
+    #qrcode {
+        width: 160px !important;
+    }
+
+    #copia_cola {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .checkout-box {
+        padding: 20px 15px;
+    }
+
+    .checkout-box h1 {
+        font-size: 1.45rem;
+    }
+
+    .btn-pay {
+        font-size: 1rem;
+    }
+}
+

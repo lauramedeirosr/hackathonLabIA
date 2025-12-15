@@ -1,0 +1,156 @@
+/* =========================================================
+   IDENTIDADE VISUAL PREMIUM — AUTENTICAÇÃO
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --laranja: #c6a1ef;
+    --azul: #007BFF;
+    --verde: #00C853;
+
+    --cinza-escuro: #1F2029;
+    --cinza-card: #2A2B38;
+
+    --texto-claro: #F5F5F5;
+    --texto-cinza: #D3D3D3;
+
+    --shadow-btn: 0 8px 24px rgba(255, 122, 0, 0.25);
+}
+
+/* =========================================================
+   BACKGROUND GRADIENT
+========================================================= */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg,
+    #2d0255 0%,
+        rgba(0,123,255,0.95) 50%,
+    #870717 100%
+    );
+    padding: 20px;
+}
+
+/* =========================================================
+   CARD (Login, Signup e Forgot Password)
+========================================================= */
+
+.card {
+    width: 330px;
+    background: var(--cinza-card);
+    padding: 2rem 1.4rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 26px rgba(0,0,0,0.25);
+    animation: fadeIn 0.6s ease-out;
+}
+
+.title {
+    font-size: 1.7rem;
+    color: var(--texto-claro);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.field {
+    margin-top: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: .6em;
+
+    background: var(--cinza-escuro);
+    padding: .7em 1em;
+    border-radius: 6px;
+}
+
+.input-icon {
+    height: 1.2em;
+    width: 1.2em;
+    fill: var(--laranja); /* Ícones na cor do site */
+}
+
+.input-field {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--texto-cinza);
+    font-size: 1rem;
+}
+
+.field input::placeholder {
+    color: #9a9a9a;
+}
+
+.field input:focus::placeholder {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+/* =========================================================
+   BOTÃO COM GRADIENTE PREMIUM
+========================================================= */
+
+.btn {
+    margin-top: 1.3rem;
+    width: 100%;
+    padding: 0.8em;
+
+    border: none;
+    border-radius: 6px;
+
+    font-weight: bold;
+    font-size: .9em;
+    text-transform: uppercase;
+
+    background: linear-gradient(135deg, var(--laranja), var(--azul));
+    color: white;
+    box-shadow: var(--shadow-btn);
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.btn-link {
+    margin-top: 0.4rem;
+    display: block;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--texto-claro);
+    transition: 0.3s;
+}
+
+.btn-link:hover {
+    color: var(--laranja);
+}
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+

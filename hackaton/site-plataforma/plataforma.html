@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>InterviewBot IA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="plataforma.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* CSS ESPECÍFICO PARA ESTA ATUALIZAÇÃO */
+
+        /* Estilo da Medalha */
+        .medal-icon {
+            color: #f1c40f; /* Dourado */
+            margin-bottom: 5px;
+        }
+
+        /* Botão do Discord */
+        .discord-btn {
+            background-color: #5865F2;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .discord-btn:hover { background-color: #4752c4; }
+
+        /* Container para alinhar os cards pequenos */
+        .conquistas-grid {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        /* Card Menor para Conquistas */
+        .card-small {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            width: 180px; /* Largura fixa menor */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-small h4 {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .card-small span {
+            font-size: 11px;
+            color: #777;
+        }
+
+        /* NOVO BOTÃO BONITINHO DE FILTRAR */
+        .btn-cute {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            height: fit-content;
+            align-self: flex-end; /* Alinha com os inputs */
+            margin-bottom: 2px;
+        }
+
+        .btn-cute:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.6);
+        }
+
+        .btn-cute:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+
+<body>
+
+<button class="sidebar-toggle" onclick="toggleSidebar()">
+    <i class="fa fa-bars"></i>
+</button>
+
+<aside class="sidebar" id="sidebar">
+    <div class="logo">Astral</div>
+
+    <ul>
+        <li><a class="active" onclick="showSection('dashboard')"><i class="fa fa-home"></i> Dashboard</a></li>
+
+        <li>
+            <a href="https://cdn.botpress.cloud/webchat/v3.5/shareable.html?configUrl=https://files.bpcontent.cloud/2025/12/13/02/20251213021532-O3JGUAI1.json" target="_blank">
+                <i class="fa fa-robot"></i> ChatBot
+            </a>
+        </li>
+
+        <li><a onclick="showSection('history')"><i class="fa fa-clock"></i> Histórico</a></li>
+
+        <li>
+            <a onclick="showSection('cursosVagas')">
+                <i class="fa fa-graduation-cap"></i> Cursos & Vagas
+            </a>
+        </li>
+
+        <li>
+            <a onclick="showSection('comunidade')">
+                <i class="fa fa-users"></i> Comunidade
+            </a>
+        </li>
+    </ul>
+
+    <ul>
+        <li><a href="login.html"><i class="fa fa-sign-out-alt"></i> Sair</a></li>
+    </ul>
+</aside>
+
+<main class="main-content">
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="section active">
+        <h2 class="section-title">Painel Principal</h2>
+
+        <!-- Card Grande (Intro) -->
+        <div class="cards">
+            <div class="card" onclick="startInterview('behavioral')">
+                <h3><i class="fa fa-comment-dots"></i> Sobre o ChatBot:</h3>
+                <p>ASTRAL treina respostas estruturadas para entrevistas e aumenta o desempenho em processos seletivos.</p>
+            </div>
+        </div>
+
+        <br>
+
+        <!-- PROGRESSO -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span id="levelLabel">Nível: Júnior</span>
+                <span id="xpLabel">0 XP</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="xpBar"></div>
+            </div>
+        </div>
+
+        <br>
+
+        <!-- ÁREA DE CONQUISTAS -->
+        <div>
+            <h3>🏅 Conquistas</h3>
+
+            <div class="conquistas-grid">
+                <!-- Card Menor -->
+                <div class="card-small">
+                    <i class="fa fa-medal fa-2x medal-icon"></i>
+                    <h4>Primeiro Passo</h4>
+                    <span>Iniciou a jornada!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTÓRICO -->
+    <section id="history" class="section">
+        <h2 class="section-title">📜 Histórico de Entrevistas</h2>
+        <ul id="historyList" class="history-list"></ul>
+        <br>
+        <button class="btn secondary" onclick="exportHistoryPDF()">Exportar Histórico (PDF)</button>
+    </section>
+
+    <!-- CURSOS E VAGAS -->
+    <section id="cursosVagas" class="section">
+        <h2 class="section-title">📚 Cursos & 🚀 Vagas</h2>
+
+        <!-- FILTROS -->
+        <div class="filters">
+            <div class="filter-group">
+                <label>Tipo</label>
+                <select id="tipoSelect">
+                    <option value="todos">Cursos + Vagas</option>
+                    <option value="curso">Cursos</option>
+                    <option value="vaga">Vagas</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Nível</label>
+                <select id="nivelSelect">
+                    <option value="todos">Todos</option>
+                    <option value="Júnior">Júnior</option>
+                    <option value="Pleno">Pleno</option>
+                    <option value="Sênior">Sênior</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Área</label>
+                <select id="areaSelect">
+                    <option value="todos">Todas</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Dados">Dados</option>
+                    <option value="DevOps">DevOps</option>
+                    <option value="UX/UI">UX/UI</option>
+                </select>
+            </div>
+
+            <!-- BOTÃO FILTRAR NOVO -->
+            <button class="btn-cute" onclick="filtrarConteudos()">
+                <i class="fa fa-filter"></i> Filtrar
+            </button>
+        </div>
+
+        <!-- GRID DE CARDS -->
+        <div class="conteudos-grid" id="conteudosGrid"></div>
+    </section>
+
+    <!-- COMUNIDADE -->
+    <section id="comunidade" class="section">
+        <h2 class="section-title">🤝 Comunidade</h2>
+
+        <div class="cards">
+            <!-- AQUI ESTÁ A ALTERAÇÃO: margin: 0 para alinhar à esquerda -->
+            <div class="card" style="text-align: center; max-width: 600px; margin: 0;">
+                <i class="fab fa-discord fa-4x" style="color: #5865F2; margin-bottom: 15px;"></i>
+                <h3>Junte-se a nós!</h3>
+                <p style="font-size: 1.1em; margin: 15px 0;">
+                    Acesse o link do discord para mais informações, networking e dicas exclusivas.
+                </p>
+                <a href="https://discord.com" target="_blank" class="discord-btn">
+                    Entrar no Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
