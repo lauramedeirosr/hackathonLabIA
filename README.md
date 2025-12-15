@@ -17,27 +17,16 @@ O InterviewBot IA é uma plataforma web gamificada desenvolvida para ajudar cand
 - JavaScript
 
 # Bibliotecas:
-FontAwesome (Ícones)
-jsPDF (Geração de relatórios)
-Chart.js (Gráficos)
+- FontAwesome (Ícones)
+- jsPDF (Geração de relatórios)
+- Chart.js (Gráficos)
 
 # Como Executar o Projeto
-Baixe os arquivos do projeto.
-Certifique-se de que todos os arquivos estejam na mesma pasta:
-index.html
-plataforma.css
-script.js
-avatar.png
-
-Abra o arquivo index.html no seu navegador de internet preferido (Google Chrome, Firefox, etc.).
-📂 Estrutura de Arquivos
-code
-/
-├── index.html       # Estrutura principal e layout
-├── plataforma.css   # Estilos visuais (Tema Escuro)
-├── script.js        # Lógica de funcionamento
-├── avatar.png       # Imagem de perfil do usuário
-└── README.md        # Documentação do projeto
+- Baixe os arquivos do projeto.
+- Certifique-se de que todos os arquivos estejam na mesma pasta:
+_ index.html
+_ plataforma.css
+_ script.js
 
 
 #
